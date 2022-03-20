@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
+using System.Configuration;
 
 namespace Server
 {
@@ -45,8 +46,10 @@ namespace Server
         };
         public static List<User> UserList = new List<User>();
         public static Socket ServerSocket;
-        public const string Host = "192.168.104.63";
-        public const int Port = 5000;
+        public static int Port = int.Parse(ConfigurationManager.AppSettings.Get("port"));
+
+        public static  string Host = ConfigurationManager.AppSettings.Get("IP");
+  
         public static bool Work = true;
 
         public static FileD GetFileByID(int ID)

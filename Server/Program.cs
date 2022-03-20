@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Linq;
+using System.Configuration;
 
 namespace Server
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-         
-            IPAddress address = IPAddress.Parse(Server.Host);
+            IPAddress address = IPAddress.Parse(Server.Host );
             Server.ServerSocket = new Socket(address.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
             Server.ServerSocket.Bind(new IPEndPoint(address, Server.Port));
             Server.ServerSocket.Listen(100);

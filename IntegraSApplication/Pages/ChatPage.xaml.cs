@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -30,8 +31,8 @@ namespace IntegraSApplication.Pages
         private ChatEvent _addMessage;
         private Socket _serverSocket;
         private Thread listenThread;
-        private const string _host = "192.168.104.63";
-        private int _port = 5000;
+        private string _host = ConfigurationManager.AppSettings.Get("IP");
+        private int _port = int.Parse(ConfigurationManager.AppSettings.Get("port"));
 
 
         public ChatPage()
