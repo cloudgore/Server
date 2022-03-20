@@ -1,0 +1,60 @@
+﻿<Window x:Class="IntegraSApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IntegraSApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1000" Background="#212121" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Интегра - С" Grid.Column="1"/>
+        <Frame Grid.Row="1" Grid.Column="1" Name="NavigateFrame" NavigationUIVisibility="Hidden"/>
+            
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch">
+            <Button Margin="10" x:Name="serviceListBtn" Content="Список товаров" Width="250" Height="40" Click="serviceListBtnClick" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="250" Height="40"  CornerRadius="12" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Margin="10" x:Name="chatBtn" Content="Чат" Width="250" Height="40" Click="chatBtnClick" >
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="250" Height="40"  CornerRadius="12" Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            <Button Margin="10" x:Name="personalCable" Content="Личный Кабинет" Width="250" Height="40" Click="personalCableClick" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="250" Height="40"  CornerRadius="12" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button Margin="10" x:Name="MapBtn" Content="Карта" Width="250" Height="40" Click="MapCLick" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="250" Height="40"  CornerRadius="12" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

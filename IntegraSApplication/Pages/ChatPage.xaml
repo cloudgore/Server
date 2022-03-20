@@ -1,0 +1,66 @@
+﻿<Page x:Class="IntegraSApplication.Pages.ChatPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IntegraSApplication.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1000"
+      Title="ChatPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+            <Border  BorderThickness="3" Width="200" Height="35" CornerRadius="8" 
+                     BorderBrush="White"
+                     Padding="3"
+                    Margin="10" >
+                <TextBox x:Name="MsgTb" Width="200" Height="35" Foreground="White" FontSize="17" TextChanged="MouseClick" KeyDown="EnteClick"/>
+
+            </Border>
+            <TextBlock Text="{Binding UserName,StringFormat='Имя пользователя :  {0}'}" Foreground="White" Padding="20"/>
+            <Button x:Name="ConnectBtn" Content="Подключиться" Width="150" Height="35" Margin="30,0,0,0" Click="ConnectClick" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="150" Height="35"  CornerRadius="12" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="SendMsg" Content="Отправить сообщение" Width="150" FontSize="14" Height="35" Margin="30,0,0,0" Click="SendMsgClick"   >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="150" Height="35"  CornerRadius="12" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="Dellmsg" Content="Удалить" Width="150" Height="35" Margin="30,0,0,0" Click="DellMsgClick"  >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="150" Height="35"  CornerRadius="12" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="PrivateMsgButton" Content="ЛС" Width="150" Height="35" Margin="30,0,0,0" Click="PrivateMsgClick"  >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="150" Height="35"  CornerRadius="12" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+        <ListBox Grid.Row="1" x:Name="listChat" Background="#0F0F0F" FontFamily="Comic Sans MS" BorderBrush="#073c6e" >
+        </ListBox>
+    </Grid>
+</Page>
