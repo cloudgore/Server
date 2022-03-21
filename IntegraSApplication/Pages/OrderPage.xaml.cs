@@ -1,4 +1,5 @@
-﻿using IntegraSApplication.DB.Entitys;
+﻿using IntegraSApplication.DB;
+using IntegraSApplication.DB.Entitys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,14 @@ namespace IntegraSApplication.Pages
             order = new Order { Service = service };
             InitializeComponent();
             DataContext = order;
+        }
+
+        private void OrderClick(object sender, RoutedEventArgs e)
+        {
+            order.User = User.userAunt;
+            order.OrderDate = DateTime.Now;
+            EFModel.Init().Orders.Add(order);
+            EFModel.Init().SaveChanges();
         }
     }
 }

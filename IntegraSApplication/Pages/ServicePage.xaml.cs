@@ -28,14 +28,25 @@ namespace IntegraSApplication.Pages
         public  MainMenuPage()
         {
             InitializeComponent();
-            List<Category> categories = EFModel.Init().Categories.ToList();
-            CbCategory.ItemsSource = categories;
-            CbCategory.SelectedIndex = 0;
+
+            InitComboBox();
             timer.Interval = TimeSpan.FromSeconds(10);
             timer.Tick += timer_TickAsync;
             timer.Start(); 
         }
         
+        private void InitComboBox()
+        {
+            List<Category> categories = EFModel.Init().Categories.ToList();
+            CbCategory.ItemsSource = categories;
+            CbCategory.SelectedIndex = 0;
+
+            CbSort.Items.Add("По возрастанию");
+            CbSort.Items.Add("По убыванию");
+            CbSort.SelectedIndex = 0;
+
+        }
+
         private void timer_TickAsync(object sender, EventArgs e)
         {
            AsyncUpdateData();
@@ -45,6 +56,19 @@ namespace IntegraSApplication.Pages
             IEnumerable<Service> services = EFModel.Init().Services.Where(u=> u.NameService.Contains(TbSearch.Text));
             if (Dispatcher.Invoke(() => CbCategory.SelectedIndex > 0))
                 services = services.Where(u => u.CategoryID == (CbCategory.SelectedItem as Category).ID);
+
+            switch (CbSort.SelectedIndex) 
+            {
+                case 0:
+                    services = services.OrderBy(u => u.Cost);
+                    break;
+                case 1:
+                    services = services.OrderByDescending(u => u.Cost);
+                    break;
+            }
+
+
+
             Dispatcher.Invoke(() => LVService.ItemsSource = services.ToList());
         }
         /*
@@ -64,6 +88,11 @@ namespace IntegraSApplication.Pages
             Service service = (sender as Button).DataContext as Service;
             NavigationService.Navigate(new OrderPage(service));
 
+        }
+
+        private void ChangeTextClick(object sender, TextChangedEventArgs e)
+        {
+            AsyncUpdateData();
         }
     }
 }

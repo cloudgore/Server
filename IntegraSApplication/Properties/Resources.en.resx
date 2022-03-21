@@ -121,6 +121,6 @@
     <value>Autorization</value>
   </data>
   <data name="ListService" xml:space="preserve">
-    <value>Service List</value>
+    <value>ListService</value>
   </data>
 </root>

@@ -31,15 +31,24 @@
             
         </Grid.RowDefinitions>
         
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Border  BorderThickness="3" Width="300" Height="35" CornerRadius="8" 
                      BorderBrush="White"
                      Padding="2"
                     Margin="10" >
-                <TextBox  Width="300" Name="TbSearch"    />
+                <TextBox  Width="300" Name="TbSearch"  TextChanged="ChangeTextClick"  />
 
             </Border>
-            <ComboBox Foreground="Black" Background="Black" Width="300"
+
+            <ComboBox Foreground="Black" Background="Black" Width="300"  Height="25"
+                      Name="CbSort" SelectionChanged="CbUpdateClick" IsEditable="True" Margin="10">
+                <ComboBox.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="#7F054353" />
+                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#7F054353" />
+                </ComboBox.Resources>
+            </ComboBox>
+
+            <ComboBox Foreground="Black" Background="Black" Width="300" Height="25"
                       Name="CbCategory" DisplayMemberPath="Name" SelectionChanged="CbUpdateClick" IsEditable="True">
                 <ComboBox.Resources>
                     <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="#7F054353" />
@@ -54,11 +63,11 @@
                     
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200"/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="900"/>
                         </Grid.ColumnDefinitions>
                         <Image Source="{Binding MainImage}"/>
                         <Grid Grid.Column="1">
-                            <StackPanel >
+                            <StackPanel VerticalAlignment="Center" >
                         
                                 <TextBlock Text="{Binding NameService}"/>
                                 <TextBlock Style="{StaticResource DiscountBase}" />

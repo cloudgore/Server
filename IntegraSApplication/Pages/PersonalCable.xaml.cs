@@ -26,7 +26,6 @@ namespace IntegraSApplication.Pages
         {
             InitializeComponent();
             DataContext = User.userAunt;
-            weather.Text = string.Format("Температура в Самаре {0} °C", GetAPIWeather.GetWeather().ToString());
         }
 
         private void EditDataClick(object sender, RoutedEventArgs e)

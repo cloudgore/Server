@@ -1,4 +1,5 @@
 ﻿using IntegraSApplication.Pages;
+using IntegraSApplication.WatherClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,8 @@ namespace IntegraSApplication
         public MainWindow()
         {
             InitializeComponent();
+            weather.Text = string.Format("Температура в Самаре {0} °C", GetAPIWeather.GetWeather().ToString());
+
 
         }
 

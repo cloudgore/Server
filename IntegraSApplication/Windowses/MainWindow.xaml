@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:p = "clr-namespace:IntegraSApplication.Properties"
+        
         xmlns:local="clr-namespace:IntegraSApplication"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="1000" Background="#212121" WindowStartupLocation="CenterScreen">
@@ -16,10 +18,12 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock Text="Интегра - С" Grid.Column="1"/>
+        <TextBlock x:Name="weather"  Grid.Column="1" Margin="50"/>
+
         <Frame Grid.Row="1" Grid.Column="1" Name="NavigateFrame" NavigationUIVisibility="Hidden"/>
             
         <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch">
-            <Button Margin="10" x:Name="serviceListBtn" Content="Список товаров" Width="250" Height="40" Click="serviceListBtnClick" >
+            <Button Margin="10" x:Name="serviceListBtn"  Content = "{x:Static p:Resources.ListService}"   Width="250" Height="40" Click="serviceListBtnClick" >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
                         <Border Width="250" Height="40"  CornerRadius="12" Background="{TemplateBinding Background}">

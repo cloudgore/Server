@@ -27,7 +27,6 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-                    <TextBlock x:Name="weather" />
         </StackPanel>
     </Grid>
 </Page>

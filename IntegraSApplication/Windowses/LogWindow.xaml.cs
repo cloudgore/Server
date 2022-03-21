@@ -1,17 +1,6 @@
 ﻿using IntegraSApplication.DB;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace IntegraSApplication.Windowses
 {
@@ -22,7 +11,22 @@ namespace IntegraSApplication.Windowses
     {
         public LogWindow()
         {
+            if(!string.IsNullOrEmpty(Properties.Settings.Default.Language))
+            {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
+                System.Threading.Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.GetCultureInfo(Properties.Settings.Default.Language);
+            }
+
             InitializeComponent();
+
+            CbLanguage.ItemsSource = new System.Globalization.CultureInfo[]
+            {
+                System.Globalization.CultureInfo.GetCultureInfo("ru-RU"),
+                System.Globalization.CultureInfo.GetCultureInfo("en"),
+            };
+
+            CbLanguage.SelectedValue = Properties.Settings.Default.Language;
+            
         }
 
         private void loginClick(object sender, RoutedEventArgs e)
@@ -36,6 +40,19 @@ namespace IntegraSApplication.Windowses
             }
             else
                 MessageBox.Show("Ошибка ! Неверный логин или пароль");
+        }
+
+        private void ChangedClick(object sender, SelectionChangedEventArgs e)
+        {
+            Properties.Settings.Default.Language = CbLanguage.SelectedValue.ToString();
+            Close();
+            
+        }
+
+        private void ClosedWindow(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Properties.Settings.Default.Language = CbLanguage.SelectedValue.ToString();
+            Properties.Settings.Default.Save();
         }
     }
 }
