@@ -61,6 +61,8 @@ namespace IntegraSApplication.Pages
 
         private void OrderClick(object sender, RoutedEventArgs e)
         {
+            Service service = (sender as Button).DataContext as Service;
+            NavigationService.Navigate(new OrderPage(service));
 
         }
     }

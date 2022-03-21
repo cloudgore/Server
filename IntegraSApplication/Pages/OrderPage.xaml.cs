@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IntegraSApplication.DB.Entitys;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,12 @@ namespace IntegraSApplication.Pages
     /// </summary>
     public partial class OrderPage : Page
     {
-        public OrderPage()
+        Order order;
+        public OrderPage(Service service)
         {
+            order = new Order { Service = service };
             InitializeComponent();
+            DataContext = order;
         }
     }
 }

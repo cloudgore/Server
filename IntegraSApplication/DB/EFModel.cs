@@ -28,6 +28,8 @@ namespace IntegraSApplication.DB
         public virtual DbSet<Service> Services { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
 
+        public virtual DbSet<Order> Orders { get; set; 
+        }
     }
 
     //public class MyEntity

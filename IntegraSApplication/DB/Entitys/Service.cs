@@ -33,7 +33,6 @@ namespace IntegraSApplication.Pages
                     return Cost - (Cost / 100) * (decimal)Discount;
                 return Cost;
             }
-          
         }
 
         public virtual Category Category { get; set; }

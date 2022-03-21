@@ -101,34 +101,25 @@ namespace Server
         public static void SendGlobalMessage(string content,string clr)
         {
             for(int i = 0;i < CountUsers;i++)
-            {
                 UserList[i].SendMessage(content, clr);
-            }
           //  UserMessage(content);
         }
         public static void RemoveGlobalMessage(string content)
         {
             for (int i = 0; i < CountUsers; i++)
-            {
                 UserList[i].RemoveMassage(content);
-            }
         }
 
         public static void SendAllUsers(byte[] data)
         {
             for(int i = 0;i < CountUsers;i++)
-            {
                 UserList[i].Send(data);
-            }
         }
         public static void SendAllUsers(string data)
         {
             for (int i = 0; i < CountUsers; i++)
-            {
                 UserList[i].Send(data);
-            }
         }
-
 
     }
 }

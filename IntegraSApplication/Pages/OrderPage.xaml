@@ -9,6 +9,19 @@
       Title="OrderPage">
 
     <Grid>
-        
+        <StackPanel>
+            <Image Source="{Binding Service.MainImage}" Width="500" Margin="5"/>
+            <TextBlock Text="{Binding Service.NameService}" Margin="5"/>
+            <TextBlock Text="{Binding Service.Category.Name}" Margin="5"/>
+            <Button x:Name="Order" Content="Оформить заказ" Width="450" Height="55"  Click="OrderClick" >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="450" Height="55"  CornerRadius="12" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>
